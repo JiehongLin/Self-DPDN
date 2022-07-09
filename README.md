@@ -3,7 +3,7 @@ Code for "Category-Level 6D Object Pose and Size Estimation using Self-Supervise
 
 Created by [Jiehong Lin](https://jiehonglin.github.io/), Zewei Wei, Changxing Ding, and [Kui Jia](http://kuijia.site/).
 
-![image](https://github.com/JiehongLin/Self-DPDN/blob/main/pic/overview.png)
+![image](https://github.com/JiehongLin/Self-DPDN/blob/main/pic/overview.jpg)
 
 
 ## License
