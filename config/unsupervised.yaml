@@ -1,0 +1,55 @@
+setting: unsupervised
+
+optimizer:
+  name : Adam
+  lr   : 0.01
+  betas: [0.5, 0.999]
+  eps  : 0.000001
+  weight_decay: 0
+
+lr_scheduler:
+  name: StepLR
+  step_size: 1
+  gamma: 0.5
+
+bn:
+  bn_momentum: 0.9
+  bn_decay: 0.5
+  decay_step: 4000
+  bnm_clip: 0.01
+
+max_epoch : 30
+num_mini_batch_per_epoch: 4000
+
+num_category: 6
+num_prior: 1024
+
+loss:
+  gamma1: 5.0
+  gamma2: 1.0
+  lambda1: 0.2
+  lambda2: 0.02
+  beta1: 5.0
+  beta2: 1.0
+
+train_dataset:
+  img_size: 192
+  sample_num: 1024
+  shift_range: 0.01
+
+train_dataloader:
+  syn_bs: 18
+  real_bs: 6
+  num_workers: 4
+  shuffle: True
+  drop_last: True
+  pin_memory: False
+
+test:
+  img_size: 192
+  sample_num: 1024
+
+rd_seed: 1
+
+per_val: 10  # do the evaluation per per_val epochs 
+per_write: 50  # write down the info per per_write iterations
