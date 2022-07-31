@@ -161,9 +161,6 @@ def annotate_camera_train(data_dir):
     """ Generate gt labels for CAMERA train data. """
     camera_train = open(os.path.join(data_dir, 'camera', 'train_list_all.txt')).read().splitlines()
     intrinsics = np.array([[577.5, 0, 319.5], [0, 577.5, 239.5], [0, 0, 1]])
-    # meta info for re-label mug category
-    with open(os.path.join(data_dir, 'obj_models/mug_meta.pkl'), 'rb') as f:
-        mug_meta = cPickle.load(f)
 
     valid_img_list = []
     for img_path in tqdm(camera_train):
@@ -213,9 +210,6 @@ def annotate_real_train(data_dir):
         instance = os.path.basename(inst_path).split('.')[0]
         bbox_dims = np.loadtxt(inst_path)
         scale_factors[instance] = np.linalg.norm(bbox_dims)
-    # meta info for re-label mug category
-    # with open(os.path.join(data_dir, 'obj_models/mug_meta.pkl'), 'rb') as f:
-    #     mug_meta = cPickle.load(f)
 
     valid_img_list = []
     for img_path in tqdm(real_train):
@@ -250,12 +244,6 @@ def annotate_real_train(data_dir):
             assert retval
             R, _ = cv2.Rodrigues(rvec)
             T = np.squeeze(tvec)
-            # # re-label for mug category
-            # if class_ids[i] == 6:
-            #     T0 = mug_meta[model_list[i]][0]
-            #     s0 = mug_meta[model_list[i]][1]
-            #     T = T - s * R @ T0
-            #     s = s / s0
             scales[i] = s
             rotations[i] = R
             translations[i] = T
@@ -300,9 +288,6 @@ def annotate_test_data(data_dir):
     model_sizes = {}
     for key in models.keys():
         model_sizes[key] = 2 * np.amax(np.abs(models[key]), axis=0)
-    # # meta info for re-label mug category
-    # with open(os.path.join(data_dir, 'obj_models/mug_meta.pkl'), 'rb') as f:
-    #     mug_meta = cPickle.load(f)
 
     subset_meta = [('real', real_test, real_intrinsics, 'test'), ('camera', camera_val, camera_intrinsics, 'val')]
     for source, img_list, intrinsics, subset in subset_meta:
