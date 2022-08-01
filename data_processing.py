@@ -222,7 +222,7 @@ def annotate_real_train(data_dir):
         if not all_exist:
             continue
         depth = load_depth(img_full_path)
-        masks, coords, class_ids, instance_ids, model_list, bboxes, sizes = process_data(img_full_path, depth)
+        masks, coords, class_ids, instance_ids, model_list, bboxes, sizes = process_data(img_full_path, depth, subset='train')
         if instance_ids is None:
             continue
         # compute pose
