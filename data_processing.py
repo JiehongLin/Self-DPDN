@@ -391,4 +391,4 @@ if __name__ == '__main__':
     # annotate dataset and re-write valid data to list
     annotate_camera_train(data_dir)
     annotate_real_train(data_dir)
-    annotate_test_data(data_dir)
+    # annotate_test_data(data_dir)
