@@ -26,7 +26,7 @@ python setup.py install
 
 Download the data provided by [NOCS](https://github.com/hughw19/NOCS_CVPR2019) ([camera_train](http://download.cs.stanford.edu/orion/nocs/camera_train.zip), [camera_test](http://download.cs.stanford.edu/orion/nocs/camera_val25K.zip), [camera_composed_depths](http://download.cs.stanford.edu/orion/nocs/camera_composed_depth.zip), [real_train](http://download.cs.stanford.edu/orion/nocs/real_train.zip), [real_test](http://download.cs.stanford.edu/orion/nocs/real_test.zip),
 [ground truths](http://download.cs.stanford.edu/orion/nocs/gts.zip),
-and [mesh models](http://download.cs.stanford.edu/orion/nocs/obj_models.zip) (also some [processed '*.pkl' files](https://drive.google.com/file/d/1Nz7cwcQWO_In4K6jKN1-5pQ0orY4UV9x/view?usp=sharing))) and segmentation results ([Link](https://drive.google.com/file/d/1hNmNRr7YRCgg-c_qdvaIzKEd2g4Kac3w/view?usp=sharing)), and unzip them in data folder as follows:
+and [mesh models](http://download.cs.stanford.edu/orion/nocs/obj_models.zip)) and segmentation results ([Link](https://drive.google.com/file/d/1hNmNRr7YRCgg-c_qdvaIzKEd2g4Kac3w/view?usp=sharing)), and unzip them in data folder as follows:
 
 ```
 data
@@ -64,35 +64,36 @@ Train DPDN under unsupervised setting:
 ```
 python train.py --gpus 0,1 --config config/unsupervised.yaml
 ```
-Train DPDN under unsupervised setting (with mask labels):
-```
-python train.py --gpus 0,1 --config config/unsupervised_withMask.yaml
-```
 Train DPDN under supervised setting:
 ```
 python train.py --gpus 0,1 --config config/supervised.yaml
 ```
 ## Evaluation
-Download trained models and test results [Link]. Evaluate our models under different settings:
+Download trained models and test results [[Link](https://drive.google.com/file/d/1hWkbH4Z0RXQeYLxC_kOINxdTnDLtm9SX/view?usp=sharing)]. Evaluate our models under different settings:
 ```
 python test.py --config config/unsupervised.yaml
-python test.py --config config/unsupervised_withMask.yaml
 python test.py --config config/supervised.yaml
 ```
 or directly evaluate our results on REAL275 test set:
 ```
 python test.py --config config/unsupervised.yaml --only_eval
-python test.py --config config/unsupervised_withMask.yaml --only_eval
 python test.py --config config/supervised.yaml --only_eval
 ```
-
+One can also evaluate our models under the easier unsupervised setting with mask labels for segmentation (still without pose annotations):
+```
+python test.py --config config/unsupervised.yaml --mask_label
+```
+or 
+```
+python test.py --config config/unsupervised.yaml --mask_label --only_eval
+```
 ## Results
 Qualitative results on REAL275 test set:
 
 |   | IoU25 | IoU75 | 5 degree 2 cm | 5 degree 5 cm | 10 degree 2 cm | 10 degree 5 cm |
 |---|---|---|---|---|---|---|
 | unsupervised | 72.6 | 63.8 | 37.8 | 45.5 | 59.8 | 71.3 |
-| unsupervised (with masks) | 78.2 | 64.5 | 39.4 | 44.2 | 61.4 | 70.9 |
+| unsupervised (with masks) | 83.0 | 70.3 | 39.4 | 45.0 | 59.8 | 72.1 |
 | supervised  | 83.4 | 76.0 | 46.0 | 50.7 | 70.4 | 78.4 |
 
 
