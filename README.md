@@ -22,6 +22,8 @@ cd model/pointnet2
 python setup.py install
 ```
 
+[Codes](https://github.com/JiehongLin/Self-DPDN/tree/main/DPDN-Pytorch1.9.0-Cuda11.2) tested with Pytorch 1.9.0 and CUDA 11.2 are also provided.
+
 ## Data Processing
 
 Download the data provided by [NOCS](https://github.com/hughw19/NOCS_CVPR2019) ([camera_train](http://download.cs.stanford.edu/orion/nocs/camera_train.zip), [camera_test](http://download.cs.stanford.edu/orion/nocs/camera_val25K.zip), [camera_composed_depths](http://download.cs.stanford.edu/orion/nocs/camera_composed_depth.zip), [real_train](http://download.cs.stanford.edu/orion/nocs/real_train.zip), [real_test](http://download.cs.stanford.edu/orion/nocs/real_test.zip),
