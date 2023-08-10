@@ -1,9 +1,16 @@
 # Self-Supervised Deep Prior Deformation Network
 Code for "Category-Level 6D Object Pose and Size Estimation using Self-Supervised Deep Prior Deformation Networks". ECCV2022.
 
+[[Paper]](https://link.springer.com/chapter/10.1007/978-3-031-20077-9_2) [[Arxiv]](https://arxiv.org/abs/2207.05444)
+
 Created by [Jiehong Lin](https://jiehonglin.github.io/), Zewei Wei, Changxing Ding, and [Kui Jia](http://kuijia.site/).
 
 ![image](https://github.com/JiehongLin/Self-DPDN/blob/main/pic/overview.jpg)
+
+
+## News
+- 2023/08: Our another work named [VI-Net](https://github.com/JiehongLin/VI-Net) is accepted by ICCV2023.
+- 2023/07: [Codes](https://github.com/JiehongLin/Self-DPDN/tree/main/DPDN-Pytorch1.9.0-Cuda11.2) tested with Pytorch 1.9.0 and CUDA 11.2 are also provided.
 
 ## Requirements
 The code has been tested with
@@ -22,7 +29,7 @@ cd model/pointnet2
 python setup.py install
 ```
 
-[Codes](https://github.com/JiehongLin/Self-DPDN/tree/main/DPDN-Pytorch1.9.0-Cuda11.2) tested with Pytorch 1.9.0 and CUDA 11.2 are also provided.
+
 
 ## Data Processing
 
@@ -97,6 +104,20 @@ Qualitative results on REAL275 test set:
 | unsupervised | 72.6 | 63.8 | 37.8 | 45.5 | 59.8 | 71.3 |
 | unsupervised (with masks) | 83.0 | 70.3 | 39.4 | 45.0 | 59.8 | 72.1 |
 | supervised  | 83.4 | 76.0 | 46.0 | 50.7 | 70.4 | 78.4 |
+
+
+## Citation
+If you find our work useful in your research, please consider citing:
+
+    @inproceedings{lin2022category,
+      title={Category-level 6D object pose and size estimation using self-supervised deep prior deformation networks},
+      author={Lin, Jiehong and Wei, Zewei and Ding, Changxing and Jia, Kui},
+      booktitle={European Conference on Computer Vision},
+      pages={19--34},
+      year={2022},
+      organization={Springer}
+    }
+
 
 
 ## Acknowledgements
